@@ -16,6 +16,13 @@ export default function TodoList() {
     function DeleteToDo(id){
        settodos(todos.filter((todo) => todo.id !== id));
     }
+    function Updatetodo(){
+        settodos(todos.map((todo)=>{
+            return{
+                ...todo,task:todo.task.toUpperCase()
+            }
+        }))
+    }
  return (
     <>
     <input placeholder="Add Task" value={newtodo} onChange={AddnewTask}></input>
@@ -40,6 +47,7 @@ export default function TodoList() {
             })
         }
     </ul>
+    <button onClick={Updatetodo}>Update</button>
     </>
  )
 }
